@@ -52,6 +52,14 @@ const BlogSchema = new Schema(
             default: function () {
                 return convertDateToUnix(this.createdAt)
             }
+        },
+        last24hClickCount: {
+            type: Number,
+            default: 0,
+        },
+        allTimeClickCount: {
+            type: Number,
+            default: 0,
         }
     },
 
