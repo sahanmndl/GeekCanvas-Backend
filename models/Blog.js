@@ -1,4 +1,4 @@
-import {model, Schema} from 'mongoose';
+import mongoose, {model, Schema} from 'mongoose';
 import {convertDateToUnix} from "../utils/HelperFunctions.js";
 
 const BlogSchema = new Schema(
@@ -60,7 +60,12 @@ const BlogSchema = new Schema(
         allTimeClickCount: {
             type: Number,
             default: 0,
-        }
+        },
+        comments: [{
+            type: mongoose.Types.ObjectId,
+            ref: 'Comment',
+            required: true
+        }],
     },
 
     {

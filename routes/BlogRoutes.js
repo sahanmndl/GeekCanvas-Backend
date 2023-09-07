@@ -1,11 +1,11 @@
 import express from "express";
 import {
-    addBlog,
+    addBlog, addBlogComment,
     addBlogSubscriber,
     deleteAllBlogs,
     deleteBlog, getAllTimeTrendingBlogs,
     getBlogById,
-    getBlogs, getDailyTrendingBlogs,
+    getBlogs, getCommentsByBlogId, getDailyTrendingBlogs,
     getScheduledBlogs, getSearchSuggestions,
     updateBlog, updateBlogClickCount
 } from "../controllers/BlogController.js";
@@ -19,6 +19,8 @@ blogRouter.put('/updateBlog', updateBlog)
 blogRouter.delete('/deleteBlog/:id', deleteBlog)
 blogRouter.get('/getBlog/:id', getBlogById)
 blogRouter.post('/addBlogSubscriber', addBlogSubscriber)
+blogRouter.post('/addBlogComment', addBlogComment)
+blogRouter.get('/getBlogComments/:blogId', getCommentsByBlogId)
 blogRouter.post('/updateBlogClickCount', updateBlogClickCount)
 blogRouter.get('/getAllTimeTrendingBlogs', getAllTimeTrendingBlogs)
 blogRouter.get('/getDailyTrendingBlogs', getDailyTrendingBlogs)
