@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import blogRouter from "./routes/BlogRoutes.js";
 import schedule from 'node-schedule';
 import {resetLast24hClickCounts} from "./controllers/BlogController.js";
+import adminRouter from "./routes/AdminRoutes.js";
 
 dotenv.config()
 
@@ -12,6 +13,7 @@ const app = express()
 app.use(cors())
 app.use(express.json({limit: "30mb", extended: true}))
 app.use('/api/blogs', blogRouter)
+app.use('/api/admin', adminRouter)
 
 schedule.scheduleJob('0 0 * * *', async () => {
     try {
